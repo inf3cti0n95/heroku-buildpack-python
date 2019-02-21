@@ -11,9 +11,9 @@ hash -r
 echo "Building libgit2..."
 
 # Download source code
-curl -OL https://github.com/libgit2/libgit2/archive/v0.21.1.tar.gz
-tar xzf v0.21.1.tar.gz
-cd libgit2-0.21.1/
+curl -OL https://github.com/libgit2/libgit2/archive/v0.27.0.tar.gz
+tar xzf v0.27.0.tar.gz
+cd libgit2-0.27.0/
 
 # Build libgit2
 make . -DCMAKE_INSTALL_PREFIX=$OUT_PREFIX
