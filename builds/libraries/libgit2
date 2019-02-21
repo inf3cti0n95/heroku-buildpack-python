@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# Build Path: /app/.heroku/vendor/
+
+OUT_PREFIX=$1
+
+# Use new path, containing autoconf.
+export PATH="/app/.heroku/python/bin/:$PATH"
+hash -r
+
+
+echo "Building libgit2..."
+
+# Download source code
+curl -OL https://github.com/libgit2/libgit2/archive/v0.21.1.tar.gz
+tar xzf v0.21.1.tar.gz
+cd libgit2-0.21.1/
+
+# Build libgit2
+make . -DCMAKE_INSTALL_PREFIX=$OUT_PREFIX
+make
+make install
+
+# Cleanup…
+cd ..
